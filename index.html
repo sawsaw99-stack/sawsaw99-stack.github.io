@@ -182,197 +182,31 @@
             </div>
         </section>
 
-        <!-- Interactive Category Explorer -->
-        <section class="mb-10">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 px-1">
+        <!-- Clean Interactive Projects Carousel -->
+        <section class="mb-10 relative">
+            <div class="flex items-center justify-between mb-4 px-1">
                 <h2 class="text-xs font-mono tracking-wider uppercase text-slate-400 flex items-center gap-2">
-                    <i class="fa-solid fa-cubes text-emerald-400"></i> Tech, Gear & Projects
+                    <i class="fa-solid fa-code-branch text-emerald-400"></i> Featured Code & Projects
                 </h2>
 
-                <!-- Category Filter Buttons -->
-                <div class="flex flex-wrap gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-slate-800 text-xs font-mono">
-                    <button onclick="filterCategory('all')" id="tab-all" class="tab-btn px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-semibold transition-all">All</button>
-                    <button onclick="filterCategory('tech')" id="tab-tech" class="tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Tech & Linux</button>
-                    <button onclick="filterCategory('radio')" id="tab-radio" class="tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Ham Radio</button>
-                    <button onclick="filterCategory('media')" id="tab-media" class="tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">Media & Gear</button>
+                <!-- Carousel Controls -->
+                <div class="flex items-center gap-2">
+                    <button onclick="scrollCarousel(-1)" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 text-slate-400 flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="scrollCarousel(1)" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 text-slate-400 flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Cards Container -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="projects-grid">
-                
-                <!-- Card: Python / Tkinter Star Evaluator -->
-                <div class="project-item tech glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-lg">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-slate-700">Python / GUI</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Star Rating Evaluator App</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Built a Tkinter desktop evaluation app featuring arbitrary nested factor trees, interactive scoring, 0-100 vs. 5-star view toggles, and JSON import/export.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Python 3</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Tkinter</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">JSON Spec</span>
-                    </div>
-                </div>
-
-                <!-- Card: MicroPython & Calculator Math -->
-                <div class="project-item tech glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-lg">
-                            <i class="fa-solid fa-calculator"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-emerald-300 border border-slate-700">Embedded Math</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Calculator ML & MicroPython</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Experimented with lightweight math libraries and quantizing small Keras models to execute natively on MicroPython-capable graphing calculators.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">MicroPython</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Keras Quant</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">TI / Casio</span>
-                    </div>
-                </div>
-
-                <!-- Card: Tidradio TD-H3 & Radio Tech -->
-                <div class="project-item radio glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 text-lg">
-                            <i class="fa-solid fa-tower-cell"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-300 border border-slate-700">Ham Radio</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">TD-H3 + NicFW & Antenna Rigging</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Custom NicFW firmware setup on Tidradio TD-H3. Engineered a pipe-cleaner tiger tail counterpoise to optimize 2m ground plane and eliminate front-end desense.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">2m / 70cm</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">NicFW</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">SSTV Nets</span>
-                    </div>
-                </div>
-
-                <!-- Card: Linux Systems Hardware -->
-                <div class="project-item tech glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-lg">
-                            <i class="fa-brands fa-linux"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-amber-300 border border-slate-700">Hardware & OS</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Linux Distros & Field Workstations</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Configuring lightweight Linux environments for field communications, SSTV decoding nets, and mobile productivity.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Linux Mint</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">XFCE</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">SSTV</span>
-                    </div>
-                </div>
-
-                <!-- Card: GoPro & Field Media Production -->
-                <div class="project-item media glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-lg">
-                            <i class="fa-solid fa-video"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-indigo-300 border border-slate-700">Production</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Field Video & Action Footage</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Action filming using handheld stabilization, wireless mics, dual-system audio, and underwater action recovery.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Action Cam</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Wireless Mic</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">DSLR Audio</span>
-                    </div>
-                </div>
-
-                <!-- Card: GoPro & Field Media Production -->
-                <div class="project-item media glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-lg">
-                            <i class="fa-solid fa-video"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-indigo-300 border border-slate-700">Production</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Field Video & Action Recovery</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Action filming using GoPro Hero 13 Black, Fluid AI Gimbal, and Wireless Mics. Filmed waterfront events & recovered continuous underwater footage from Lake 12.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Hero 13 Black</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Dual Audio</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Canon T7</span>
-                    </div>
-                </div>
-
-                <!-- Card: Hobbies & Worldbuilding -->
-                <div class="project-item media glass-card p-5 rounded-2xl transition-all duration-300">
-                    <div class="flex items-start justify-between">
-                        <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-lg">
-                            <i class="fa-solid fa-dice-d20"></i>
-                        </div>
-                        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-rose-300 border border-slate-700">Creative</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mt-3">Model Trains & D&D DMing</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Active HO scale model train builder, tabletop dungeon master crafting custom campaigns, and enthusiast for local Wisconsin railroad history.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">HO Scale</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">D&D 5e</span>
-                        <span class="bg-slate-950 px-2 py-0.5 rounded">Local History</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Gear Quick-Specs Drawer -->
-        <section class="glass-card rounded-2xl p-6 mb-8">
-            <div class="flex items-center justify-between mb-4 cursor-pointer" onclick="toggleGearList()">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white text-sm">Field & Studio Kit Highlights</h3>
-                        <p class="text-xs text-slate-400">Click to view main gear categories</p>
-                    </div>
-                </div>
-                <button id="gear-toggle-btn" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-transform">
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
+            <!-- Carousel Cards Container (Scroll Snap) -->
+            <div id="carousel-container" class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-2">
+                <!-- Dynamically populated from JS array -->
             </div>
 
-            <!-- Hidden Gear Content -->
-            <div id="gear-content" class="hidden pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div class="space-y-2">
-                    <h4 class="font-mono text-cyan-400 text-[11px] uppercase tracking-wider">Radios & Tech</h4>
-                    <ul class="space-y-1.5 text-slate-300 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-500"></i> Dual-Band VHF/UHF Handhelds (Custom Firmware & Counterpoise)</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-500"></i> Mobile Transceivers & Field Antennas</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-500"></i> Microcontrollers & Bench Electronics</li>
-                    </ul>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-mono text-emerald-400 text-[11px] uppercase tracking-wider">Media & Audio</h4>
-                    <ul class="space-y-1.5 text-slate-300 font-mono">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-500"></i> Action Camera Rig & AI Gimbal Stabilization</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-500"></i> Wireless & Dual-System Audio Recording</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-500"></i> DSLR Setup with Standard & Telephoto Glass</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Carousel Indicator Dots -->
+            <div id="carousel-dots" class="flex justify-center gap-1.5 mt-4"></div>
         </section>
 
         <!-- Footer -->
@@ -396,6 +230,100 @@
     </div>
 
     <script>
+        // EASY EDIT PROJECT ARRAY: Add new project objects here!
+        const projectsData = [
+            {
+                title: "Star Rating Evaluator",
+                category: "Python / GUI",
+                description: "Tkinter desktop app with arbitrary nested factor trees, interactive scoring, 0-100 vs. 5-star view toggles, and JSON import/export.",
+                tags: ["Python 3", "Tkinter", "JSON"],
+                icon: "fa-solid fa-star-half-stroke",
+                iconColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+                codeUrl: "https://github.com/sawsaw99-stack"
+            },
+            {
+                title: "Calculator MicroPython & ML",
+                category: "Embedded Math",
+                description: "Lightweight math libraries and quantized Keras model experiments running natively on MicroPython-capable graphing calculators.",
+                tags: ["MicroPython", "Keras", "Embedded"],
+                icon: "fa-solid fa-calculator",
+                iconColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+                codeUrl: "https://github.com/sawsaw99-stack"
+            },
+            {
+                title: "Ham Radio NicFW & Tiger Tail",
+                category: "Radio & Tech",
+                description: "NicFW firmware setup on Tidradio TD-H3 and custom pipe-cleaner counterpoise engineering to eliminate 2m front-end desense.",
+                tags: ["NicFW", "Ham Radio", "Antenna Design"],
+                icon: "fa-solid fa-tower-cell",
+                iconColor: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+                codeUrl: "https://github.com/sawsaw99-stack"
+            },
+            {
+                title: "Dynamic Array & Sheet Sync",
+                category: "Automation / Data",
+                description: "Google Sheets dynamic mapping formulas using FILTER and HSTACK with automated multi-criteria validation flags.",
+                tags: ["Google Sheets", "Array Formulas", "Automation"],
+                icon: "fa-solid fa-table",
+                iconColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+                codeUrl: "https://github.com/sawsaw99-stack"
+            }
+        ];
+
+        // Render projects inside carousel
+        function renderProjectsCarousel() {
+            const container = document.getElementById('carousel-container');
+            const dotsContainer = document.getElementById('carousel-dots');
+            
+            if (!container) return;
+
+            container.innerHTML = projectsData.map((project, index) => `
+                <div class="snap-start shrink-0 w-full sm:w-[320px] glass-card p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                    <div>
+                        <div class="flex items-start justify-between">
+                            <div class="p-2.5 rounded-xl border text-lg ${project.iconColor}">
+                                <i class="${project.icon}"></i>
+                            </div>
+                            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">${project.category}</span>
+                        </div>
+                        <h3 class="font-bold text-white text-base mt-3">${project.title}</h3>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">${project.description}</p>
+                    </div>
+
+                    <div>
+                        <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 mb-4">
+                            ${project.tags.map(t => `<span class="bg-slate-950 px-2 py-0.5 rounded">${t}</span>`).join('')}
+                        </div>
+                        <a href="${project.codeUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 border border-slate-800 hover:border-cyan-400 py-2 px-3 rounded-xl text-xs font-mono flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-solid fa-code text-[11px]"></i> View Code <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render indicator dots
+            dotsContainer.innerHTML = projectsData.map((_, index) => `
+                <button onclick="scrollToSlide(${index})" class="carousel-dot w-2 h-2 rounded-full bg-slate-800 transition-all ${index === 0 ? 'bg-cyan-400 w-5' : ''}" data-index="${index}"></button>
+            `).join('');
+        }
+
+        function scrollCarousel(direction) {
+            const container = document.getElementById('carousel-container');
+            const cardWidth = container.querySelector('.snap-start')?.offsetWidth || 320;
+            container.scrollBy({ left: direction * (cardWidth + 16), behavior: 'smooth' });
+        }
+
+        function scrollToSlide(index) {
+            const container = document.getElementById('carousel-container');
+            const cardWidth = container.querySelector('.snap-start')?.offsetWidth || 320;
+            container.scrollTo({ left: index * (cardWidth + 16), behavior: 'smooth' });
+        }
+
+        // Initialize carousel on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjectsCarousel();
+        });
+
         // Copy to clipboard fallback using execCommand
         function copyToClipboard(event, textToCopy, label) {
             event.preventDefault();
@@ -436,56 +364,6 @@
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 2600);
         }
-
-        // Category Filtering Logic
-        function filterCategory(category) {
-            const items = document.querySelectorAll('.project-item');
-            const buttons = document.querySelectorAll('.tab-btn');
-
-            // Update button UI
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-semibold');
-                btn.classList.add('text-slate-400');
-            });
-
-            const activeBtn = document.getElementById(`tab-${category}`);
-            if (activeBtn) {
-                activeBtn.classList.add('bg-cyan-500', 'text-slate-950', 'font-semibold');
-                activeBtn.classList.remove('text-slate-400');
-            }
-
-            // Filter cards
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 200);
-                }
-            });
-        }
-
-        // Toggle Gear Accordion
-        function toggleGearList() {
-            const gearContent = document.getElementById('gear-content');
-            const toggleBtn = document.getElementById('gear-toggle-btn');
-            
-            if (gearContent.classList.contains('hidden')) {
-                gearContent.classList.remove('hidden');
-                toggleBtn.style.transform = 'rotate(180deg)';
-            } else {
-                gearContent.classList.add('hidden');
-                toggleBtn.style.transform = 'rotate(0deg)';
-            }
-        }
     </script>
-    <script src="https://keepandroidopen.org/banner.js"></script>
 </body>
 </html>
