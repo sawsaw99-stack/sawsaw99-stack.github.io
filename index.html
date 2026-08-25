@@ -70,11 +70,11 @@
                         SD
                     </div>
                 </div>
-                <!-- Status indicator badge -->
-                <span class="absolute -bottom-2 -right-2 bg-slate-900 px-3 py-1 rounded-full border border-slate-700 text-xs font-mono text-emerald-400 flex items-center gap-1.5 shadow-md">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Online
-                </span>
+                <!-- Dynamic Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/50 text-xs text-slate-300 backdrop-blur-md mb-6 shadow-sm">
+                    <span id="status-dot" class="w-2 h-2 rounded-full bg-slate-500 transition-all duration-300"></span>
+                    <span id="status-text" class="font-medium">Checking status...</span>
+                </div>
             </div>
 
             <div class="flex-1 space-y-2">
@@ -364,6 +364,37 @@
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 2600);
         }
+    </script>
+    <script>
+    async function updateGitHubStatus() {
+      const dot = document.getElementById('status-dot');
+      const text = document.getElementById('status-text');
+  
+      try {
+        const res = await fetch('https://api.github.com/users/sawsaw99-stack/events/public');
+        if (!res.ok) throw new Error();
+        const events = await res.json();
+
+        if (events && events.length > 0) {
+          const lastEvent = new Date(events[0].created_at);
+          const hoursAgo = (Date.now() - lastEvent.getTime()) / (1000 * 60 * 60);
+
+          if (hoursAgo <= 12) {
+            dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+            text.textContent = 'Active recently';
+          } else {
+            dot.className = 'w-2 h-2 rounded-full bg-slate-500';
+            text.textContent = 'Away';
+          }
+        } else {
+          text.textContent = 'Away';
+        }
+      } catch (err) {
+        dot.className = 'w-2 h-2 rounded-full bg-slate-500';
+        text.textContent = 'Offline';
+      }
+    }
+    updateGitHubStatus();
     </script>
     <script src="https://keepandroidopen.org/banner.js"></script>
 </body>
